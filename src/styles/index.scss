@@ -1,0 +1,87 @@
+section {
+    background-color: var(--color-lightest);
+    // background-image: url('/images/hero1.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: var(--color-darkest);
+    font-size: 1.2em;
+    min-height: 100%;
+    padding-block-start: 1.5em;
+    width: 100%;
+
+    .hero__content {
+        padding: 1em;
+        border: 1px solid var(--color-dark);
+        border-radius: 0.5em;
+        text-align: center;
+
+        .cta {
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero__title {
+            font-size: 1em;
+            font-weight: 700;
+            margin: 0.1em;
+            padding: 0.1em;
+
+            &::before {
+                align-content: center;
+                background-color: var(--color-darkest);
+                border-radius: 0.1em;
+                content: url('/favicon.ico');
+                justify-content: center;
+                margin-right: 0.5em;
+                padding: 0.2em;
+                padding-bottom: 0.0em;
+            }
+        }
+
+        .hero__description {
+            color: var(--color-primary-darker);
+            font-size: 1.4em;
+            font-weight: 500;
+            margin-block: 0;
+            padding-block: 0;
+        }
+
+        .hero__cta {
+            color: var(--color-darkest);
+            margin-top: 1em;
+            padding: 0.5em 1em;
+            border: 1px solid var(--color-dark);
+            border-radius: 0.5em;
+            font-size: 1.4em;
+        }
+
+        .info {
+            font-size: 0.9em;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 600;
+            margin-block: 0;
+            padding-block: 0.5em 1em;
+        }
+    }
+
+    @media (prefers-color-scheme: dark) {
+        color: var(--color-lightest);
+        background-color: var(--color-darkest);
+
+        .hero__content {
+            .hero__title {
+                color: var(--color-primary-lighter);
+                text-decoration-color: currentColor;
+            }
+
+            .hero__description {
+                color: var(--color-primary);
+            }
+
+            .hero__cta {
+                color: var(--color-lightest);
+                border-color: var(--color-light);
+            }
+        }
+    }
+}

@@ -1,0 +1,99 @@
+:root {
+    /* Color Pallette */
+    --color-primary: rgb(255, 102, 0);
+    --color-primary-dark: rgb(233, 93, 44);
+    --color-primary-darker: rgb(166, 62, 24);
+    --color-lightest: #B0CEE2;
+    --color-darker: #45586C;
+    --color-darkest: #1A2730;
+    --color-white: #fff;
+    --color-black: #000;
+
+    --background-color: #f5f5f5;
+    --text-color: #333;
+
+
+    @media (prefers-color-scheme: dark) {
+        --background-color: #333;
+        --text-color: #fff;
+    }
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    min-width: 100vw;
+    // min-height: 100vh;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    font-family: 'Montserrat', 'Poppins', 'Quicksand', serif;
+
+    main {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    font-family: 'Quicksand', 'Poppins', 'Montserrat', sans-serif;
+}
+
+p {
+    font-weight: 500;
+}
+
+a {
+    text-decoration-line: underline;
+    text-decoration-color: currentColor;
+    text-underline-offset: 0.15em;
+    text-decoration-thickness: 0.06em;
+    text-decoration-style: wavy;
+    text-indent: 0.4em;
+    font-family: 'Poppins', 'Quicksand', 'Montserrat', sans-serif;
+    font-weight: 300;
+
+    &:hover {
+        text-decoration-style: solid;
+        color: var(--color-primary);
+    }
+}
+
+button {
+    font-family: 'Quicksand', 'Poppins', 'Montserrat', sans-serif;
+    cursor: pointer;
+}
+
+section {
+    * {
+        padding-inline: 0.2em;
+    }
+}
+
+svg {
+    fill: currentColor;
+    stroke: currentColor;
+}
+
+/* Helper classes */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+}

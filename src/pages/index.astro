@@ -1,16 +1,50 @@
 ---
-
+import "../styles/index.scss";
+import MainLayout from "../layouts/MainLayout.astro";
+import HeroCTA from "../components/svelte/HeroCta.svelte";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<MainLayout title="Oseelabs | Home of Creativity">
+  <h1 class="visually-hidden">
+    Oseelabs.org Homepage — Where creativity meets genius
+  </h1>
+
+  <section class="hero" role="banner" title="Hero Banner Section">
+    <h2 class="visually-hidden">Oseelabs Hero Banner</h2>
+    <div
+      class="hero__content"
+      aria-label="Hero Content Container"
+      title="Hero Content"
+      role="region"
+    >
+      <h2 class="hero__title" title="Welcome">Welcome to Oseelabs</h2>
+      <p
+        aria-label="hero description text"
+        title="descrption text"
+        class="hero__description"
+      >
+        Where creativity meets genius
+      </p>
+      <p
+        aria-label="hero description information"
+        title="site information"
+        class="info"
+      >
+        We are a team of creative minds who are passionate about building
+        innovative solutions that solve real-world problems.
+      </p>
+
+      <div class="cta">
+        <HeroCTA 
+          url="/about" 
+          label="Learn More"
+          bgColor="var(--color-black)"
+          color="var(--color-white)"
+          client:load 
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="about"></section>
+</MainLayout>

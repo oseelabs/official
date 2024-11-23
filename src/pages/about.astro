@@ -1,0 +1,80 @@
+---
+import "../styles/about.scss";
+import MainLayout from "../layouts/MainLayout.astro";
+import { Image } from "astro:assets";
+
+import team from "../lib/data/team";
+import quote from "../images/quote.svg";
+---
+
+<MainLayout title="The Team Behind Us | About Oseelabs">
+  <h1 class="visually-hidden">About Page for Oseelabs</h1>
+
+  <section class="about" role="region" title="About Section">
+    <h2 class="about__title" title="About Oseelabs">About us</h2>
+
+    <div class="about__content">
+      <div class="our__mission">
+        <h2 class="visually-hidden">Our Mission</h2>
+        <div class="mission__content">
+          <h3 class="mission__title" title="Our Mission">Our Mission</h3>
+          <p class="mission__description" title="Our Mission">
+            <Image
+              src={quote}
+              alt="Our Mission"
+              width={24}
+              height={24}
+              loading={"eager"}
+            />
+            <span>
+              Our mission is to provide innovative solutions that solve
+              real-world problems.
+            </span>
+          </p>
+        </div>
+      </div>
+
+      <div class="the__team">
+        <h3 class="team__title" title="Meet the Team">Meet the Team</h3>
+        <div class="team__content">
+          <p class="team__description" title="Meet the Team">
+            <Image
+              src={quote}
+              alt="Our Mission"
+              width={24}
+              height={24}
+              loading={"eager"}
+            />
+            <span>
+              We are a team of creative minds who are passionate about building
+              innovative solutions that solve real-world problems.
+            </span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="members">
+      {
+        team.map((member) => (
+          <div class="member-wrapper" id={String(member.id)}>
+            <Image
+              class="member__avatar"
+              src={member.avatar}
+              alt={member.name}
+              width={5}
+              height={5}
+              loading={"eager"}
+            />
+            <h4 class="member__name" title={member.name}>
+              {member.name}
+            </h4>
+            <p class="member__role" title={member.role}>
+              {member.role}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+</MainLayout>
