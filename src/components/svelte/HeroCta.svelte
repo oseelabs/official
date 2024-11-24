@@ -2,6 +2,7 @@
     interface Props {
         url: string;
         label: string;
+        title: string;
         ariaLabel: string;
         bgColor: string;
         color: string;
