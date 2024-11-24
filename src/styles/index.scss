@@ -69,6 +69,10 @@ section {
         background-color: var(--color-darkest);
 
         .hero__content {
+            min-height: 60dvh;
+                align-items: center;
+                align-content: center;
+                justify-content: center;
             .hero__title {
                 color: var(--color-primary-lighter);
                 text-decoration-color: currentColor;
@@ -83,5 +87,12 @@ section {
                 border-color: var(--color-light);
             }
         }
+    }
+}
+section.about {
+    .about__content {
+        width: auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
     }
 }

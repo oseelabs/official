@@ -2,6 +2,10 @@
 import "../styles/index.scss";
 import MainLayout from "../layouts/MainLayout.astro";
 import HeroCTA from "../components/svelte/HeroCta.svelte";
+import AboutCard from "../components/astro/AboutCard.astro";
+import worldMission from "../images/world-mission.jpg";
+import hands from "../images/hands.jpg";
+import eye from "../images/eye.jpg";
 ---
 
 <MainLayout title="Oseelabs | Home of Creativity">
@@ -35,20 +39,47 @@ import HeroCTA from "../components/svelte/HeroCta.svelte";
       </p>
 
       <div class="cta">
-        <HeroCTA 
-          url="/about" 
+        <HeroCTA
+          url="/about"
           label="Learn More"
+          title="Learn More About Oseelabs"
           bgColor="var(--color-black)"
           color="var(--color-white)"
-          client:load 
+          client:load
         />
       </div>
     </div>
   </section>
 
   <section class="about">
-    <!-- THIS ISA TEST SECTION, FOR ABOUT, SEE THE /ABOUT PAGE -->
-    <a href="https://zireemilsoude.net/4/8555380" target="_blank" rel="noopener noreferrer">
-      ADVERTISEMENT
+    <h2 class="visually-hidden">About Oseelabs</h2>
+    <h2 class="about__title">About Us</h2>
+    <div class="about__content">
+      <AboutCard
+        title="Our Mission"
+        image={worldMission}
+        roundedFull={true}
+        loading="eager"
+        description="We are a team of creative minds who are passionate about building innovative solutions that solve real-world problems."
+        cta="Meet the Team"
+        ctaLink="/about"
+      />
+      <AboutCard
+        title="Our Vision"
+        image={eye}
+        roundedFull={true}
+        description="We are a team of creative minds who are passionate about building innovative solutions that solve real-world problems."
+        cta="Learn More"
+        ctaLink="/about"
+      />
+      <AboutCard
+        title="Our Values"
+        image={hands}
+        rounded="3em"
+        description="We are a team of creative minds who are passionate about building innovative solutions that solve real-world problems."
+        cta="Get Started"
+        ctaLink="/about"
+      />
+    </div>
   </section>
 </MainLayout>

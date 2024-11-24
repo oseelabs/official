@@ -1,9 +1,9 @@
 .about {
     width: 100%;
+    background-color: var(--color-lightest);
     // max-width: 1024px;
 
     h2 {
-        background-color: var(--color-lightest);
         color: var(--color-darker);
         font-size: 2em;
         font-weight: bold;
@@ -26,7 +26,6 @@
     align-items: center;
 
     .members {
-        background-color: var(--color-lightest);
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
@@ -64,7 +63,6 @@
     .about__content {
         align-content: center;
         align-items: center;
-        background-color: var(--color-lightest);
         display: flex;
         flex-direction: column;
         justify-content: center;

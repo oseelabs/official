@@ -18,6 +18,8 @@
     "typescript": "^5.7.2"
   },
   "devDependencies": {
+    "@types/jquery": "^3.5.32",
+    "jquery": "^3.7.1",
     "sass": "^1.81.0"
   }
 }

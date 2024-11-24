@@ -42,6 +42,7 @@
         align-content: center;
         background-color: var(--bgColor);
         border-radius: 0.5rem;
+        box-shadow: 0 0 0.3rem var(--color);
         color: var(--color);
         cursor: pointer;
         display: flex;

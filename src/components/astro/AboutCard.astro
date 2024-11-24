@@ -1,0 +1,100 @@
+---
+import { Image } from "astro:assets";
+import HeroCta from "../svelte/HeroCta.svelte";
+
+interface Props {
+  title: string;
+  description: string;
+  image: ImageMetadata;
+  rounded?: string;
+  roundedFull?: boolean;
+  cta?: string;
+  ctaLink?: string;
+  loading?: "lazy" | "eager";
+}
+
+const {
+  title,
+  description,
+  image,
+  rounded = "0",
+  roundedFull = false,
+  cta,
+  ctaLink,
+  loading = "lazy",
+}: Props = Astro.props;
+---
+
+<article class="about-card">
+  <header id="head1">
+    <Image
+      loading={loading}
+      class="image"
+      style={roundedFull ? "border-radius: 50%;" : `border-radius: ${rounded};`}
+      src={image}
+      alt={title}
+      width={300}
+      height={300}
+    />
+    <h2>{title}</h2>
+    <hr />
+  </header>
+  <p>{description}</p>
+  <footer>
+    <HeroCta
+      class="cta"
+      url={ctaLink}
+      label={cta}
+      title={cta}
+      bgColor="var(--color-darkest)"
+      target="_blank"
+      client:load
+    />
+  </footer>
+</article>
+
+<style lang="scss">
+  article {
+    align-items: center;
+    background-color: var(--color-darker);
+    border: none;
+    outline: none;
+    border-radius: 1em;
+    color: var(--color-lightest);
+    display: flex;
+    flex-direction: column;
+    // width: 100%;
+    margin: 0.5em;
+    padding: 0.5em;
+
+    .image {
+      width: auto;
+      height: 8em;
+    }
+
+    hr {
+      background-color: var(--color-lightest);
+      border: 0;
+      border-radius: 1em;
+      height: 0.2em;
+      margin: 0.5em 0;
+      width: 100%;
+    }
+
+    footer {
+      padding: 0.5em;
+      padding-block-end: 1em;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      background-color: var(--color-darker);
+
+      * {
+        color: var(--color-darkest);
+      }
+      hr {
+        background-color: var(--color-darkest);
+      }
+    }
+  }
+</style>
