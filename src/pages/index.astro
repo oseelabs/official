@@ -1,24 +1,23 @@
 ---
-import "../styles/index.scss";
+import "@styles/index.scss";
 
-import { Image } from "astro:assets";
 import MainLayout from "../layouts/MainLayout.astro";
-import HeroCTA from "../components/svelte/HeroCta.svelte";
-import AboutCard from "../components/astro/AboutCard.astro";
-import worldMission from "../images/world-mission.jpg";
-import hands from "../images/hands.jpg";
-import eye from "../images/eye.jpg";
+import HeroCTA from "@components/svelte/HeroCta.svelte";
+import AboutCard from "@components/astro/AboutCard.astro";
+import worldMission from "@images/world-mission.jpg";
+import hands from "@images/hands.jpg";
+import eye from "@images/eye.jpg";
 ---
 
 <script>
-  $(".large-hero-image").css({ display: "none" }); 
-  $('img:not(:first)').attr('loading', () => "lazy");
+  $(".large-hero-image").css({ display: "none" });
+  $("img:not(:first)").attr("loading", () => "lazy");
   $(function () {
     if (innerWidth > 768) {
       $(".large-hero-image").css({
         display: "flex",
       });
-      $('img').attr('loading', () => "lazy");
+      $("img").attr("loading", () => "lazy");
     }
   });
 </script>
