@@ -7,7 +7,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://oseelabs.org',
+  site: 'https://www.oseelabs.org',
   integrations: [
     svelte(), 
     sitemap({
