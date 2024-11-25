@@ -20,7 +20,6 @@ export default defineConfig({
           'fr': 'fr-CA',
         },
       },
-      xslURL: 'https://www.oseelabs.org/styles/sitemap.xsl',
     })
   ],
 });
