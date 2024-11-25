@@ -1,5 +1,7 @@
 ---
 import "../styles/index.scss";
+
+import { Image } from "astro:assets";
 import MainLayout from "../layouts/MainLayout.astro";
 import HeroCTA from "../components/svelte/HeroCta.svelte";
 import AboutCard from "../components/astro/AboutCard.astro";
@@ -8,6 +10,19 @@ import hands from "../images/hands.jpg";
 import eye from "../images/eye.jpg";
 ---
 
+<script>
+  $(".large-hero-image").css({ display: "none" }); 
+  $('img:not(:first)').attr('loading', () => "lazy");
+  $(function () {
+    if (innerWidth > 768) {
+      $(".large-hero-image").css({
+        display: "flex",
+      });
+      $('img').attr('loading', () => "lazy");
+    }
+  });
+</script>
+
 <MainLayout title="Oseelabs | Home of Creativity">
   <h1 class="visually-hidden">
     Oseelabs.org Homepage — Where creativity meets genius
@@ -15,6 +30,7 @@ import eye from "../images/eye.jpg";
 
   <section class="hero" role="banner" title="Hero Banner Section">
     <h2 class="visually-hidden">Oseelabs Hero Banner</h2>
+    <span class="large-hero-image"></span>
     <div
       class="hero__content"
       aria-label="Hero Content Container"
@@ -52,8 +68,8 @@ import eye from "../images/eye.jpg";
   </section>
 
   <section class="about">
-    <h2 class="visually-hidden">About Oseelabs</h2>
     <h2 class="about__title">About Us</h2>
+    <h3 class="visually-hidden">About Oseelabs</h3>
     <div class="about__content">
       <AboutCard
         title="Our Mission"
