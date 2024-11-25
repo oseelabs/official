@@ -18,4 +18,5 @@
     <xsl:value-of select="loc"/>
     <xsl:text>  -  </xsl:text>
     <xsl:value-of select="loc"/>
-</xsl:template>
+  </xsl:template>
+</xsl:stylesheet>
