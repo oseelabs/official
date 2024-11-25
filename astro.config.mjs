@@ -11,7 +11,7 @@ export default defineConfig({
   integrations: [
     svelte(), 
     sitemap({
-      filter: (page) => page !== 'https://oseelabs.org/admin',
+      filter: (page) => page !== 'https://www.oseelabs.org/admin',
       i18n: {
         defaultLocale: 'en',
         locales: {
@@ -20,7 +20,7 @@ export default defineConfig({
           'fr': 'fr-CA',
         },
       },
-      xslURL: 'https://oseelabs.org/styles/sitemap.xsl',
+      xslURL: 'https://www.oseelabs.org/styles/sitemap.xsl',
     })
   ],
 });
