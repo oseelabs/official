@@ -1,12 +1,13 @@
 body {
     font-family: Arial, sans-serif;
     padding: 20px;
-    background-color: #f4f4f9;
+    background-color: var(--color-dark);
+    color: var(--color-darker);
   }
   .container {
     max-width: 400px;
     margin: 0 auto;
-    background: #fff;
+    background: transparent;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -26,15 +27,15 @@ body {
     border-radius: 4px;
   }
   button {
-    background: #080373;
-    color: #fff;
+    background: var(--color-primary);
+    color: var(--color-black);
     padding: 10px 15px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
   }
   button:hover {
-    background: #060258;
+    background: var(--color-primary-darker);
   }
   .message {
     margin-top: 15px;

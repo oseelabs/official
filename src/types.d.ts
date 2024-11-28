@@ -4,13 +4,11 @@ type User = {
     username: string,
     fullname: string,
     password: string,
-    profile?: ProfileType
+    profile?: Profile
 }
 
 type Profile = {
-    id: number,
+    id?: number,
     userId: number,
     bio?: string,
-    // image?: string,
-    // following?: boolean
 }

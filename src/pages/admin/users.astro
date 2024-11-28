@@ -3,50 +3,68 @@ import { API_URL } from "@app/constants";
 import MainLayout from "@layouts/MainLayout.astro";
 import '@styles/users.scss';
 
-const title = 'Registered Users'
+const title = 'Registered Users';
 
-async function fetchUsers() {
-    interface Data {
-        users: User[],
-        message: string
-    };
-
-    const res = await fetch(`${API_URL}/users`);
-    const data: Data = await res.json();
-    return data;
+interface Data {
+    users: User[];
+    message: string;
 }
 
-let data = await fetchUsers();
-const users = data.users;
-const message = data.message;
+let data: Data = { users: [], message: '' };
+
+// Function to fetch users and update the `data` object
+async function fetchUsers() {
+    try {
+        const res = await fetch(`${API_URL}/users`);
+        if (!res.ok) {
+            throw new Error('Failed to fetch users.');
+        }
+        const result: Data = await res.json();
+        data = result;
+    } catch (error) {
+        console.error(error);
+        data.message = 'Unable to load users. Please try again later.';
+    }
+}
+
+await fetchUsers();
 ---
 
-
 <MainLayout title={title}>
-<h1>{title}</h1>
+    <h1>{title}</h1>
 
-{ message && <p>{message}</p> }
+    <div class="sub">
+        <a href="/admin">Back to Admin</a>
+        {data.message && <p class="error-message">{data.message}</p>}
+        <button onclick='{fetchUsers}'>Load Users</button>
+    </div>
 
-<table style="width: 100%;">
-    <thead>
-        <tr>
-            <th align="left">#</th>
-            <th align="left">Username</th>
-            <th align="left">Full Name</th>
-            <th align="left" style="width: 35% !important;">Bio</th>
-            <th align="left">Email</th>
-        </tr>
-    </thead>
-    <tbody id="table-row">
-        { users && users.map((user: User, i: number) => (
-            <tr id={String(i)}>
-                <td align="left">{i+1}</td>
-                <td align="left"><b>{user.username}</b></td>
-                <td align="left">{user.fullname}</td>
-                <td align="left" set:html={user.profile.bio}></td>
-                <td align="left">{user.email}</td>
+    <table style="width: 100%;">
+        <thead>
+            <tr>
+                <th align="left">#</th>
+                <th align="left">Username</th>
+                <th align="left">Full Name</th>
+                <th align="left" style="width: 35% !important;">Bio</th>
+                <th align="left">Email</th>
             </tr>
-        )) }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            {data.users.length > 0 ? (
+                data.users.map((user: User, i: number) => (
+                    <tr id={String(i)}>
+                        <td align="left">{i + 1}</td>
+                        <td align="left"><b>{user.username}</b></td>
+                        <td align="left">{user.fullname}</td>
+                        <td align="left">{user.profile?.bio}</td>
+                        <td align="left">{user.email}</td>
+                    </tr>
+                ))
+            ) : (
+                <tr>
+                    <td colspan="5" align="center">No users found.</td>
+                </tr>
+            )}
+        </tbody>
+    </table>
 </MainLayout>
