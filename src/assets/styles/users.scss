@@ -58,6 +58,12 @@ table {
                 white-space: normal;
                 width: fit-content;
             }
+
+            :first-child { width: 5%; }
+            :nth-child(2) { width: 10%; }
+            :nth-child(3) { width: 25%; }
+            :nth-child(4) { width: auto; }
+            :nth-child(5) { width: 25%; }
         }
 
         tr:nth-child(even) {
