@@ -77,7 +77,9 @@ table {
         }
 
         tbody {
-            display: block;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
             width: 100%;
             overflow-x: auto;
         }
