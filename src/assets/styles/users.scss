@@ -72,16 +72,6 @@ table {
     }
 
     @media (width < 600px) {
-        thead {
-            display: none;
-        }
-
-        tbody {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            width: 100%;
-            overflow-x: auto;
-        }
+        font-size: 0.8em;
     }
 }
