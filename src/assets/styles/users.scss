@@ -17,6 +17,7 @@ main {
 table {
     display: table;
     width: auto;
+    max-width: 100%;
     border: 0.1em solid  var(--color-lightest);
     border-collapse: collapse;
     margin: 1em;
