@@ -21,6 +21,7 @@ const users = data.users;
 const message = data.message;
 ---
 
+
 <MainLayout title={title}>
 <h1>{title}</h1>
 
@@ -36,7 +37,7 @@ const message = data.message;
             <th align="left">Email</th>
         </tr>
     </thead>
-    <tbody>
+    <tbody id="table-row">
         { users && users.map((user: User, i: number) => (
             <tr id={String(i)}>
                 <td align="left">{i+1}</td>

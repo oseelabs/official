@@ -5,11 +5,11 @@ main {
     justify-content: center;
     margin: 0;
     padding: 1em;
-    background-color: var(--color-lightest);
+    // background-color: var(--color-lightest);
     color: var(--color-darkest);
     
     @media (prefers-color-scheme: dark) {
-        background-color: var(--color-darkest);
+        // background-color: var(--color-darkest);
         color: var(--color-lightest);
     }
 }

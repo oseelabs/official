@@ -1,0 +1,74 @@
+---
+import '@styles/register.scss';
+import MainLayout from "@layouts/MainLayout.astro";
+
+const title = "User Registration";
+---
+
+  <style>
+    
+  </style>
+<MainLayout>
+  <div class="container">
+    <h1>{title}</h1>
+    <form id="registrationForm">
+      <div>
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required />
+      </div>
+      <div>
+        <label for="username">Fullname</label>
+        <input type="text" id="fullname" name="fullname" required />
+      </div>
+      <div>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required />
+      </div>
+      <div>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required />
+      </div>
+      <button type="submit">Register</button>
+    </form>
+    <div id="message" class="message"></div>
+  </div>
+</MainLayout>
+
+
+<script>
+    import { API_URL } from "@app/constants";
+
+    $(function () {
+        const $form = $('#registrationForm').first();
+        const $messageDiv = $('#message');
+
+        $form.on('submit', function (event) {
+            event.preventDefault();
+
+            const formData = $form.serializeArray();
+            const data: { [key: string]: string } = {};
+
+            // Convert formData to an object
+            $.each(formData, function (_, field) {
+                data[field.name] = field.value;
+            });
+
+            $.ajax({
+                url: `${API_URL}/user`,
+                method: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(data),
+                success: function (response) {
+                    $messageDiv.text('Registration successful!');
+                    $messageDiv.attr('class', 'message success');
+                    // ($form as unknown as HTMLFormElement).onreset(); // Reset the form
+                },
+                error: function (jqXHR) {
+                    const errorMessage = jqXHR.responseJSON?.message || 'An error occurred';
+                    $messageDiv.text(errorMessage);
+                    $messageDiv.attr('class', 'message error');
+                },
+            });
+        });
+    });
+</script>

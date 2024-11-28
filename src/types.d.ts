@@ -1,9 +1,9 @@
 type User = {
-    id: number,
+    id?: number,
     email: string,
     username: string,
     fullname: string,
-    password_hash: string,
+    password: string,
     profile?: ProfileType
 }
 
