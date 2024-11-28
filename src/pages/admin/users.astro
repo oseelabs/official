@@ -16,7 +16,11 @@ async function fetchUsers() {
     return data;
 }
 
-const data = await fetchUsers();
+window.location.reload = async function() {
+    data = await fetchUsers();
+}
+
+let data = await fetchUsers();
 const users = data.users;
 const message = data.message;
 ---
