@@ -2,9 +2,11 @@
 import { API_URL } from "@app/constants";
 import MainLayout from "@layouts/MainLayout.astro";
 import '@styles/users.scss';
+import UsersTable from "@components/svelte/users-table.svelte";
 
 const title = 'Registered Users';
-
+---
+<!-- 
 interface Data {
     users: User[];
     message: string;
@@ -67,4 +69,8 @@ await fetchUsers();
             )}
         </tbody>
     </table>
-</MainLayout>
+</MainLayout> -->
+
+<MainLayout title={title}>
+    <UsersTable client:load />
+</MainLayout>   
