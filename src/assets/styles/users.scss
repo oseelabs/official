@@ -70,4 +70,16 @@ table {
             color: var(--color-lightest);
         }
     }
+
+    @media (width < 600px) {
+        thead {
+            display: none;
+        }
+
+        tbody {
+            display: block;
+            width: 100%;
+            overflow-x: auto;
+        }
+    }
 }
