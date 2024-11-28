@@ -1,0 +1,51 @@
+---
+import { API_URL } from "@app/constants";
+import MainLayout from "@layouts/MainLayout.astro";
+import '@styles/users.scss';
+
+const title = 'Registered Users'
+
+async function fetchUsers() {
+    interface Data {
+        users: User[],
+        message: string
+    };
+
+    const res = await fetch(`${API_URL}/users`);
+    const data: Data = await res.json();
+    return data;
+}
+
+const data = await fetchUsers();
+const users = data.users;
+const message = data.message;
+---
+
+<MainLayout title={title}>
+<h1>{title}</h1>
+
+{ message && <p>{message}</p> }
+
+<table>
+    <thead>
+        <tr>
+            <th align="left">#</th>
+            <th align="left">Username</th>
+            <th align="left">Full Name</th>
+            <th align="left">Bio</th>
+            <th align="left">Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        { users && users.map((user: User, i: number) => (
+            <tr id={String(i)}>
+                <td align="left">{i+1}</td>
+                <td align="left"><b>{user.username}</b></td>
+                <td align="left">{user.fullname}</td>
+                <td align="left" set:html={user.profile.bio}></td>
+                <td align="left">{user.email}</td>
+            </tr>
+        )) }
+    </tbody>
+</table>
+</MainLayout>

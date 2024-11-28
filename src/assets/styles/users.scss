@@ -1,0 +1,72 @@
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 1em;
+    background-color: var(--color-lightest);
+    color: var(--color-darkest);
+    
+    @media (prefers-color-scheme: dark) {
+        background-color: var(--color-darkest);
+        color: var(--color-lightest);
+    }
+}
+
+table {
+    display: table;
+    width: auto;
+    border: 0.1em solid  var(--color-lightest);
+    border-collapse: collapse;
+    margin: 1em;
+    align-items: start;
+
+    thead {
+        background-color: var(--color-primary);
+        border: 0.1em solid var(--color-primary);
+        border-collapse: collapse;
+        color: var(--color-black);
+
+        tr {
+            border: 0.1em solid #000;
+            border-collapse: collapse;
+
+            th {
+                border: 0.1em solid #000;
+                border-collapse: collapse;
+                padding: 0.5em;
+                width: fit-content;
+            }
+        }
+    }
+
+    tbody {
+        border: 0.1em solid #000;
+        border-collapse: collapse;
+
+        tr {
+            border: 0.1em solid #000;
+            border-collapse: collapse;
+
+            td {
+                display: table-cell;
+                border: 0.1em solid #000;
+                border-collapse: collapse;
+                padding: 0.5em;
+                white-space: normal;
+                width: fit-content;
+            }
+        }
+
+        tr:nth-child(even) {
+            background-color: var(--color-lightest);
+            color: var(--color-darkest);
+        }
+
+        tr:nth-child(odd) {
+            background-color: var(--color-darkest);
+            color: var(--color-lightest);
+        }
+    }
+}

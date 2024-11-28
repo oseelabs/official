@@ -11,6 +11,7 @@
       "@data/*": ["src/lib/data/*"],
       "@utils/*": ["src/lib/utils/*"],
       "@types/*": ["src/lib/types/*"],
+      "@app/constants": ["src/constants.ts"],
     },
   },
 }

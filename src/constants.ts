@@ -1,0 +1,1 @@
+export const API_URL="https://api.oseelabs.org/org/v1"
